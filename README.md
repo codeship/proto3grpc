@@ -1,4 +1,4 @@
-Contains the proto3 compiler, gRPC, gRPC's go libraries, and grpc-gateway.
+Contains the protocol buffers proto3 compiler, gRPC, gRPC's go libraries, and grpc-gateway.
 
 https://developers.google.com/protocol-buffers/docs/proto3  
 https://github.com/google/protobuf  
