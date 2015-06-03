@@ -6,3 +6,9 @@ https://github.com/golang/protobuf
 http://www.grpc.io  
 https://github.com/grpc  
 https://github.com/gengo/grpc-gateway
+
+Assuming you have a proto file `foo.proto` in your current directory, run with:
+
+```
+docker run --volume $(pwd):/compile --workdir /compile pedge/proto3grpc protoc --go_out=. foo.proto
+```
