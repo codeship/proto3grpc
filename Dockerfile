@@ -1,9 +1,9 @@
-FROM golang:1.4.2 
+FROM golang:1.5.1
 MAINTAINER peter.edge@gmail.com
 
 RUN \
-  apt-get update -y && \
-  apt-get install -y \
+  apt-get update -yq && \
+  apt-get install -yq --no-install-recommends \
     autoconf \
     automake \
     build-essential \
