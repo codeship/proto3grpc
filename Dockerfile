@@ -34,6 +34,8 @@ RUN \
   make install
 
 RUN \
-  go get github.com/golang/protobuf/protoc-gen-go && \
-  go get google.golang.org/grpc && \
-  go get github.com/gengo/grpc-gateway/protoc-gen-grpc-gateway
+  go get \
+    github.com/golang/protobuf/proto \
+    github.com/golang/protobuf/protoc-gen-go \
+    google.golang.org/grpc \
+    github.com/gengo/grpc-gateway/protoc-gen-grpc-gateway
