@@ -9,7 +9,8 @@ RUN \
     build-essential \
     git \
     libtool \
-    unzip && \
+    unzip \
+    zlib1g-dev && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -35,9 +36,11 @@ RUN \
   rm -rf protobuf-3.0.0-beta-3
 
 RUN \
-  git clone https://github.com/grpc/grpc.git && \
+  wget https://github.com/grpc/grpc/archive/release-0_15_0.zip && \
+  unzip release-0_15_0.zip && \
+  mv grpc-release-0_15_0 grpc && \
+  rm release-0_15_0.zip && \
   cd grpc && \
-  git submodule update --init && \
   make && \
   make install
 
