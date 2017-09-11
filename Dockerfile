@@ -1,5 +1,4 @@
-FROM golang:1.5.1
-MAINTAINER peter.edge@gmail.com
+FROM golang:1.8.3
 
 RUN \
   apt-get update -yq && \
@@ -14,25 +13,17 @@ RUN \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN \
-  wget https://codeload.github.com/google/protobuf/tar.gz/v3.0.0-beta-3 && \
-  tar xvzf v3.0.0-beta-3 && \
-  rm v3.0.0-beta-3 && \
-  cd protobuf-3.0.0-beta-3 && \
-  wget https://github.com/google/googlemock/archive/release-1.7.0.zip && \
-  unzip -q release-1.7.0.zip && \
-  rm release-1.7.0.zip && \
-  mv googlemock-release-1.7.0 gmock && \
-  wget https://github.com/google/googletest/archive/release-1.7.0.zip && \
-  unzip -q release-1.7.0.zip && \
-  rm release-1.7.0.zip && \
-  mv googletest-release-1.7.0 gmock/gtest && \
+  wget https://github.com/google/protobuf/archive/v3.4.0.tar.gz && \
+  tar xvzf v3.4.0.tar.gz && \
+  rm v3.4.0.tar.gz && \
+  cd protobuf-3.4.0 && \
   ./autogen.sh && \
   ./configure --prefix=/usr && \
   make && \
   make check && \
   make install && \
   cd - && \
-  rm -rf protobuf-3.0.0-beta-3
+  rm -rf protobuf-3.4.0
 
 RUN \
   go get \
